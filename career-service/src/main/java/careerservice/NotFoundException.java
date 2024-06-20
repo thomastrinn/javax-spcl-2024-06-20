@@ -1,7 +1,5 @@
 package careerservice;
 
-import java.net.URI;
-
 public class NotFoundException extends RuntimeException {
 
     public NotFoundException(String message) {
