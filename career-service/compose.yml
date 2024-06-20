@@ -1,0 +1,12 @@
+name: career-bs
+
+services:
+  db:
+    image: postgres:15.7-alpine
+    environment:
+      TZ: Europe/Budapest
+      POSTGRES_DB: career
+      POSTGRES_USER: career
+      POSTGRES_PASSWORD: career
+    ports:
+      - "5435:5432"
