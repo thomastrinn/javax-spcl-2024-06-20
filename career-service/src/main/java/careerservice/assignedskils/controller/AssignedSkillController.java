@@ -9,17 +9,17 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/assigned-skills")
 @AllArgsConstructor
-public class AssignedSkillController {
+class AssignedSkillController {
 
     private final AssignedSkillService assignedSkillService;
 
     @PostMapping
-    public EmployeeSkillsView assignSkillsToEmployee(@RequestBody AssignSkillsToEmployeeCommand command) {
+    EmployeeSkillsView assignSkillsToEmployee(@RequestBody AssignSkillsToEmployeeCommand command) {
         return assignedSkillService.assignSkillsToEmployee(command);
     }
 
     @GetMapping
-    public EmployeeSkillsView getAssignedSkills(@RequestParam int employeeId) {
+    EmployeeSkillsView getAssignedSkills(@RequestParam int employeeId) {
         return assignedSkillService.getAssignedSkills(employeeId);
     }
 }
