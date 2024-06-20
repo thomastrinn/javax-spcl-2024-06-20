@@ -1,0 +1,65 @@
+### List skills
+GET http://localhost:8084/api/skills
+
+### Create skill
+POST http://localhost:8084/api/skills
+Content-Type: application/json
+
+{
+  "name": "Java"
+}
+
+### Create skill
+POST http://localhost:8084/api/skills
+Content-Type: application/json
+
+{
+  "name": "JavaScript"
+}
+
+### Assign skill
+POST http://localhost:8084/api/assigned-skills
+Content-Type: application/json
+
+{
+  "employeeId": 1,
+  "skills": [
+    {
+      "skillId": 1,
+      "level": 4
+    },
+    {
+      "skillId": 2,
+      "level": 3
+    }
+  ]
+}
+
+### Assign skill
+POST http://localhost:8084/api/assigned-skills
+Content-Type: application/json
+
+{
+  "employeeId": 1,
+  "skills": [
+    {
+      "skillId": 1,
+      "level": 5
+    }
+  ]
+}
+
+### List assigned skills to employee
+GET http://localhost:8084/api/assigned-skills?employeeId=1
+
+### Enroll
+POST http://localhost:8084/api/enrollments
+Content-Type: application/json
+
+{
+  "employeeId": 1,
+  "courseId": 2
+}
+
+### Get enrollments to employee
+GET http://localhost:8084/api/enrollments?employeeId=1
