@@ -1,0 +1,12 @@
+name: course-bs
+
+services:
+  db:
+    image: postgres:15.7-alpine
+    environment:
+      TZ: Europe/Budapest
+      POSTGRES_DB: course
+      POSTGRES_USER: course
+      POSTGRES_PASSWORD: course
+    ports:
+      - "5434:5432"
