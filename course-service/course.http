@@ -8,7 +8,6 @@ Accept: application/json
 
 
 ### Create course
-
 POST http://localhost:8083/api/courses
 Content-Type: application/json
 
@@ -20,7 +19,6 @@ Content-Type: application/json
 }
 
 ### Create course - lorem
-
 POST http://localhost:8083/api/courses
 Content-Type: application/json
 
@@ -32,7 +30,6 @@ Content-Type: application/json
 }
 
 ### Enroll to course
-
 POST http://localhost:8083/api/courses/1/enrollments
 Content-Type: application/json
 
@@ -41,3 +38,11 @@ Content-Type: application/json
   "courseId": 1
 }
 
+### Query
+GET http://localhost:8083/api/course-documents/1
+
+### Query search
+GET http://localhost:8083/api/course-documents?word=mattis
+
+### Elastic
+GET http://localhost:9200/courses/_search?pretty=true
