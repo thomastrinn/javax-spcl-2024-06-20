@@ -13,8 +13,7 @@ import java.util.stream.Collectors;
 
 @Entity
 @Getter
-// bár IntelliJ panaszkodik, hogy kéne public vagy protected no-arg constructor, de hibernate tudja kezelni
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class AssignedSkills {
 
     @Id
