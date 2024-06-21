@@ -1,6 +1,5 @@
 package courseservice.coursequery;
 
-import courseservice.course.CourseHasBeenCreatedEvent;
 import lombok.AllArgsConstructor;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;

@@ -1,0 +1,30 @@
+name: course-query-bs
+
+volumes:
+  elasticsearch_data:
+
+services:
+  elasticsearch:
+    image: elasticsearch:8.6.1
+    environment:
+      xpack.security.enabled: false
+      discovery.type: single-node
+      ES_JAVA_OPTS: -Xms1g -Xmx1g
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+      nofile:
+        soft: 65536
+        hard: 65536
+    cap_add:
+      - IPC_LOCK
+    logging:
+      options:
+        max-size: 10m
+        max-file: "5"
+    volumes:
+      - elasticsearch_data:/usr/share/elasticsearch/data
+    ports:
+      - "9200:9200"
+      - "9300:9300"

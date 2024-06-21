@@ -1,6 +1,5 @@
 package courseservice.coursequery;
 
-import courseservice.course.CourseHasBeenCreatedEvent;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")
