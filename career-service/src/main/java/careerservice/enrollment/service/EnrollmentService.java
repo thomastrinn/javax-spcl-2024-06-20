@@ -1,12 +1,12 @@
 package careerservice.enrollment.service;
 
-import careerservice.enrollment.view.EnrollmentView;
+import careerservice.NotFoundException;
 import careerservice.enrollment.model.EnrollCommand;
 import careerservice.enrollment.model.Enrollment;
+import careerservice.enrollment.view.EnrollmentView;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -27,12 +27,22 @@ public class EnrollmentService {
         var mayBeEnrolled = enrollmentRepository.findByCourseIdAndEmployeeId(command.courseId(), command.employeeId());
         if (mayBeEnrolled.isPresent()) {
             return enrollmentMapper.toView(mayBeEnrolled.get());
-        }
-        else {
+        } else {
             var enrollment = Enrollment.enrollToCourse(command);
             enrollmentRepository.save(enrollment);
             return enrollmentMapper.toView(enrollment);
         }
     }
 
+    public void complete(long courseId, long employeeId) {
+        enrollmentRepository.findByCourseIdAndEmployeeId(courseId, employeeId)
+                .orElseThrow(() -> new NotFoundException("Enrollment not found"))
+                .complete();
+    }
+
+    public void cancel(long courseId, long employeeId) {
+        enrollmentRepository.findByCourseIdAndEmployeeId(courseId, employeeId)
+                .orElseThrow(() -> new NotFoundException("Enrollment not found"))
+                .cancel();
+    }
 }
