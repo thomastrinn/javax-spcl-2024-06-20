@@ -1,0 +1,16 @@
+### Create course
+POST http://localhost:8085/api/courses
+Content-Type: application/json
+
+{
+  "name": "Advanced Java development",
+  "description": "Learn Java",
+  "syllabus": "Java SE",
+  "limit": 5
+}
+
+### Query
+GET http://localhost:8085/api/course-documents/1
+
+### Query search
+GET http://localhost:8085/api/course-documents?word=mattis
